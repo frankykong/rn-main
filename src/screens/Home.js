@@ -5,11 +5,25 @@ export default Home = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
+  // https://reactnative.dev/movies.json
+  // http://127.0.0.1:8000/api/courses
+  // http://web.art-cloud.com/assets/movies.json
   const getMovies = async () => {
      try {
-      const response = await fetch('https://reactnative.dev/movies.json');
+      const response = await fetch('http://127.0.0.1:8000/api/courses', {
+        headers: 
+        {
+          'Cache-Control': 'no-cache',
+          'Pragma': 'no-cache',
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      });
       const json = await response.json();
-      setData(json.movies);
+
+      console.log(json);
+
+      setData(json.rows);
     } catch (error) {
       console.error(error);
     } finally {
@@ -26,9 +40,9 @@ export default Home = () => {
       {isLoading ? <ActivityIndicator/> : (
         <FlatList
           data={data}
-          keyExtractor={({ id }, index) => id}
+          keyExtractor={item => item.id.toString()}
           renderItem={({ item }) => (
-            <Text>{item.title}, {item.releaseYear}</Text>
+            <Text>{item.title}</Text>
           )}
         />
       )}

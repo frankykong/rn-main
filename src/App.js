@@ -49,9 +49,10 @@ function HomeTabs() {
         labelStyle: { fontSize: 15, fontWeight: 'bold' }
       }}
     >
+       <Tab.Screen name={'Home'} component={Home} />
       <Tab.Screen name={'To-Do'} component={ToDo} />
       <Tab.Screen name={'Done'} component={Done} />
-      <Tab.Screen name={'Home'} component={Home} />
+     
 
     </Tab.Navigator>
   );
