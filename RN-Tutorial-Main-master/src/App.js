@@ -3,7 +3,6 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from './screens/Home';
 import ToDo from './screens/ToDo';
 import Done from './screens/Done';
 import Task from './screens/Task';
@@ -29,9 +28,6 @@ function HomeTabs() {
             } else if (route.name === 'Done') {
               iconName = 'clipboard-check';
               size = focused ? 25 : 20;
-            } else if (route.name === 'Home') {
-              iconName = 'clipboard-check';
-              size = focused ? 25 : 20;
             }
             return (
               <FontAwesome5
@@ -51,8 +47,6 @@ function HomeTabs() {
     >
       <Tab.Screen name={'To-Do'} component={ToDo} />
       <Tab.Screen name={'Done'} component={Done} />
-      <Tab.Screen name={'Home'} component={Home} />
-
     </Tab.Navigator>
   );
 }

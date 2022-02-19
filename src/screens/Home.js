@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 
-export default Home = () => {
+export default Home = ({ navigation }) => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
   // https://reactnative.dev/movies.json
   // http://127.0.0.1:8000/api/courses
   // http://web.art-cloud.com/assets/movies.json
+  // http://web.art-cloud.com/api/courses
   const getMovies = async () => {
      try {
-      const response = await fetch('http://127.0.0.1:8000/api/courses', {
+      const response = await fetch('http://web.art-cloud.com/api/courses', {
         headers: 
         {
           'Cache-Control': 'no-cache',
