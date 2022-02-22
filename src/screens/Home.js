@@ -7,7 +7,7 @@ import {
   View,
   Image
 } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export default function Home({navigation})
 {
@@ -23,13 +23,14 @@ export default function Home({navigation})
     try {
       setIsLoading(true);
       const response = await fetch(`http://web.art-cloud.com/api/courses?page=${page}&length=10`, {
-        headers: {
-          'Cache-Control': 'no-cache',
-          Pragma: 'no-cache',
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
+          headers: {
+            'Cache-Control': 'no-cache',
+            Pragma: 'no-cache',
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
         },
-      });
+      );
       const json = await response.json();
       console.log(json);
       setData([...data, ...json.rows]);
