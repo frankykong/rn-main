@@ -7,6 +7,7 @@ import ToDo from './screens/ToDo';
 import Done from './screens/Done';
 import Task from './screens/Task';
 import Course from './screens/Course';
+import Lesson from './screens/Lesson';
 import Splash from './screens/Splash';
 import Map from './screens/Map';
 import Camera from './screens/Camera';
@@ -74,6 +75,7 @@ function App() {
             }}
           />
           <RootStack.Screen name="Course" component={Course} />
+          <RootStack.Screen name="Lesson" component={Lesson} />
           <RootStack.Screen name="My Tasks" component={HomeTabs} />
           <RootStack.Screen name="Task" component={Task} />
           <RootStack.Screen name="Camera" component={Camera} />

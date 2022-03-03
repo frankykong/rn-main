@@ -32,8 +32,6 @@ export default function Course({navigation}) {
       // console.log(json);
       setData(json.course);
 
-      console.log('opt == \n');
-      console.log(data);
 
     } catch (error) {
       console.error(error);
@@ -62,6 +60,7 @@ export default function Course({navigation}) {
     <View style={{flex: 1, padding: 24}}>
       {isLoading ? (
         <Text>Loading...</Text>
+
       ) : (
         <>
           <View>
@@ -83,8 +82,17 @@ export default function Course({navigation}) {
             </View>
           </View>
           <View>
+
             {data.lessons.map((r) => (
-              <Text>{r.title}</Text>
+              <TouchableOpacity
+                key={r.id}
+                onPress={() => {
+                  navigation.navigate('Lesson');
+                }}
+              >
+                <Text>{r.title}</Text>
+              </TouchableOpacity> 
+
             ))}
           </View>
         </>

@@ -32,7 +32,6 @@ export default function Home({navigation})
         },
       );
       const json = await response.json();
-      console.log(json);
       setData([...data, ...json.rows]);
     } catch (error) {
       console.error(error);
