@@ -10,6 +10,7 @@ import {
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {createIconSetFromFontello} from 'react-native-vector-icons';
 import Moment from 'moment';
+import {VLCPlayer} from 'react-native-vlc-media-player';
 
 export default function Course({navigation}) {
   const [isLoading, setIsLoading] = useState(true);
@@ -63,6 +64,7 @@ export default function Course({navigation}) {
 
       ) : (
         <>
+        <VLCPlayer></VLCPlayer>
           <View>
             <Image style={styles.image} source={{uri: data.largePicture}} />
             <Text>{data.title}</Text>
